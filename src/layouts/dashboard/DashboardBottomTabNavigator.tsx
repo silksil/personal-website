@@ -1,7 +1,6 @@
 import { alpha, BottomNavigation, BottomNavigationAction } from "@mui/material";
 import React from "react";
 import { navbarConfig } from "./navbarConfig";
-import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useTheme } from "@mui/system";
 
