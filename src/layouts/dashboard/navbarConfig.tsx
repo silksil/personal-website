@@ -1,21 +1,23 @@
 import { Icon } from "@iconify/react";
-import starFill from "@iconify/icons-eva/star-fill";
+import person from "@iconify/icons-eva/person-fill";
+import message from "@iconify/icons-eva/message-circle-fill";
+import code from "@iconify/icons-eva/code-fill";
 
 const navbarConfig = [
   {
-    title: "About",
+    title: "Home",
     path: "/",
-    icon: <Icon icon={starFill} />
+    icon: <Icon icon={person} />
   },
   {
-    title: "Projects",
-    path: "/projects",
-    icon: <Icon icon={starFill} />
+    title: "About",
+    path: "/about",
+    icon: <Icon icon={code} />
   },
   {
     title: "Contact",
     path: "/contact",
-    icon: <Icon icon={starFill} />
+    icon: <Icon icon={message} />
   }
 ];
 

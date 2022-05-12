@@ -1,6 +1,7 @@
 import { alpha, BottomNavigation, BottomNavigationAction } from "@mui/material";
 import React from "react";
 import { navbarConfig } from "./navbarConfig";
+import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useTheme } from "@mui/system";
 
@@ -23,21 +24,25 @@ const NavItem = ({ path, title, icon }: NavItemProps) => {
   };
 
   return (
-    // <NextLink href={path}>
-    <BottomNavigationAction
-      sx={{
-        width: "100%",
-        maxWidth: "auto",
-        ...(isActiveRoot && activeRootStyle)
-      }}
-      label="TEST"
-      icon={icon}
-    />
-    // </NextLink>
+    <NextLink href={path}>
+      <BottomNavigationAction
+        sx={{
+          fontFamily: "sans serif",
+          width: "100%",
+          maxWidth: "100%",
+          ...(isActiveRoot && activeRootStyle)
+        }}
+        showLabel
+        label={title}
+        icon={icon}
+      />
+    </NextLink>
   );
 };
 
 export function DashboardBottomTabNavigator() {
+  const theme = useTheme();
+
   return (
     <BottomNavigation showLabels sx={{ position: "fixed", bottom: 0, width: "100%" }}>
       {navbarConfig.map((item: NavItemProps) => (
