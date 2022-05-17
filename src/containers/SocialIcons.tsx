@@ -13,7 +13,7 @@ export function SocialIcons({ spacing = 1, size = "m", ...props }: SocialIconsPr
   return (
     <Stack direction="row" spacing={spacing} {...props}>
       {SOCIALS.map((social) => (
-        <a href={social.url} target="_blank">
+        <a href={social.url} target="_blank" key={social.name}>
           <IconButton key={social.name} color="primary">
             <Icon size={size} icon={social.icon} />
           </IconButton>

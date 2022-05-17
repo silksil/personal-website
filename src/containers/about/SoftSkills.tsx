@@ -21,7 +21,7 @@ const Box = styled("div")(({ theme }) => ({
 
 interface Item {
   title: string;
-  description: string;
+  description: string | JSX.Element;
 }
 interface SoftSkillsProps {
   title: string;

@@ -54,11 +54,11 @@ export function AboutTabs() {
     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <BaseTabs value={value} onChange={handleChange} aria-label="tab navigator" sx={{ mb: 5, display: "block" }}>
         {tabItems.map(({ label }, index) => (
-          <Tab label={label} {...a11yProps(index)} />
+          <Tab label={label} {...a11yProps(index)} key={label} />
         ))}
       </BaseTabs>
-      {tabItems.map(({ children }, index) => (
-        <TabPanel value={value} index={index}>
+      {tabItems.map(({ children, label }, index) => (
+        <TabPanel value={value} index={index} key={label}>
           {children}
         </TabPanel>
       ))}

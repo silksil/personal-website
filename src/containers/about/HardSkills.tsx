@@ -19,7 +19,7 @@ export function HardSkills() {
   return (
     <Grid container spacing={{ xs: 1, md: 4 }}>
       {skills.map((skill) => (
-        <Grid item xs={6} lg={4} sx={{ textAlign: "center" }}>
+        <Grid item xs={6} lg={4} sx={{ textAlign: "center" }} key={skill.label}>
           <Typography component="legend">{skill.label}</Typography>
           <Rating name="half-rating-read" defaultValue={skill.score} precision={0.5} readOnly />
         </Grid>
