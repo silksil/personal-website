@@ -50,7 +50,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: Dash
             sx: {
               height: "100%",
               width: DRAWER_WIDTH,
-              bgcolor: "background.default"
+              bgcolor: "background.neutral"
             }
           }}
         >
