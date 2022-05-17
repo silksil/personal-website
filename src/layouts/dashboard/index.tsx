@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 import DashboardSidebar from "./DashboardSidebar";
 import { MHidden } from "src/components/MHidden";
 import { DashboardBottomTabNavigator } from "./DashboardBottomTabNavigator";
+import { NoSsr } from "@mui/material";
 const APP_BAR_MOBILE = 64;
 const APP_BAR_DESKTOP = 92;
 
@@ -37,9 +38,11 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       <MHidden width="lgDown">
         <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
       </MHidden>
-      <MHidden width="lgUp">
-        <DashboardBottomTabNavigator />
-      </MHidden>
+      <NoSsr>
+        <MHidden width="lgUp">
+          <DashboardBottomTabNavigator />
+        </MHidden>
+      </NoSsr>
       <MainStyle>{children}</MainStyle>
     </RootStyle>
   );

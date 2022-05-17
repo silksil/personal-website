@@ -19,7 +19,7 @@ const NavItem = ({ path, title, icon }: NavItemProps) => {
   const activeRootStyle = {
     color: "primary.main",
     fontWeight: "fontWeightMedium",
-    bgcolor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
+
     "&:before": { display: "block" }
   };
 
@@ -27,6 +27,7 @@ const NavItem = ({ path, title, icon }: NavItemProps) => {
     <NextLink href={path}>
       <BottomNavigationAction
         sx={{
+          zIndex: 1000,
           fontFamily: "sans serif",
           width: "100%",
           maxWidth: "100%",

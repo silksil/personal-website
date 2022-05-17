@@ -3,7 +3,7 @@ import { ProjectCard } from "src/components/Card";
 
 const projects = [
   {
-    title: "Vladimir vs KMB",
+    title: "KMB vs. Vladimir",
     description: "An NFT collection that aimed to raise funds for Ukraine by making fun of Putin.",
     imgSrc: "/static/kmb.png",
     url: "https://www.kmb.world/"
