@@ -48,8 +48,8 @@ const getHeight = ({ size, height, theme }: getSizeProps) => {
   return theme.icons.m.height;
 };
 
-export function Icon({ size = "m", color = "primary", icon, width, height, ...props }: IconProps) {
+export function Icon({ size = "m", color = "primary", icon, width, height }: IconProps) {
   const theme = useTheme();
 
-  return <BaseIcon color={getColor(color, theme)} icon={icon} height={getHeight({ size, height, theme })} width={getWidth({ size, width, theme })} {...props} />;
+  return <BaseIcon color={getColor(color, theme)} icon={icon} height={getHeight({ size, height, theme })} width={getWidth({ size, width, theme })} />;
 }
