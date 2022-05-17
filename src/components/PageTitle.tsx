@@ -6,5 +6,5 @@ interface NavSectionProps extends BoxProps {
 }
 
 export function PageTitle({ title }: NavSectionProps) {
-  return <Typography>{title}</Typography>;
+  return <Typography variant="h1">{title}</Typography>;
 }

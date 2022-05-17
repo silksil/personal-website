@@ -8,25 +8,35 @@ import breakpoints from "./breakpoints";
 import componentsOverride from "./overrides";
 import shadows, { customShadows } from "./shadows";
 import { useLocalStorage } from "src/hooks/useLocalStorage";
+import icons from "./icons";
 
 type ThemeConfigProps = {
   children: ReactNode;
 };
 
+declare module "@mui/material/styles" {
+  interface Theme {
+    isLight: boolean;
+    setIsLight: Function;
+  }
+  interface ThemeOptions {
+    setIsLight?: Function;
+  }
+}
 export default function ThemeConfig({ children }: ThemeConfigProps) {
-  const [themeMode, setThemeMode] = useLocalStorage("themeMode", "light");
-  const isLight = themeMode === "dark";
+  const [isLight, setIsLight] = useLocalStorage("themeIsLight", true);
 
   const themeOptions: ThemeOptions = useMemo(
     () => ({
       palette: isLight ? { ...palette.light, mode: "light" } : { ...palette.dark, mode: "dark" },
       shape,
-      // icons: { ...icons },
+      icons: { ...icons },
       typography,
       breakpoints,
       shadows: isLight ? shadows.light : shadows.dark,
       customShadows: isLight ? { ...customShadows.light } : { ...customShadows.dark },
-      setThemeMode
+      isLight,
+      setIsLight
     }),
     [isLight]
   );

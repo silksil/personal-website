@@ -18,7 +18,6 @@ function responsiveFontSizes({ sm, md, lg }: { sm: number; md: number; lg: numbe
 
 const FONT_PRIMARY = "IBMPlexSans, sans-serif";
 const FONT_SECONDARY = "Inter, sans-serif";
-const FONT_TERTIARY = "IBMPlexMono, sans-serif";
 
 const typography = {
   fontFamily: FONT_PRIMARY,
@@ -93,7 +92,7 @@ const typography = {
     fontSize: pxToRem(14)
   },
   caption: {
-    fontFamily: FONT_TERTIARY,
+    fontFamily: FONT_PRIMARY,
     lineHeight: 1.5,
     fontSize: pxToRem(12)
   },
@@ -106,7 +105,7 @@ const typography = {
     textTransform: "uppercase"
   },
   button: {
-    fontFamily: FONT_TERTIARY,
+    fontFamily: FONT_PRIMARY,
     fontWeight: 700,
     lineHeight: 24 / 14,
     fontSize: pxToRem(14),
