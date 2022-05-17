@@ -10,8 +10,8 @@ const skills = [
   { label: "Apollo", score: 3.5 },
   { label: "CSS", score: 4 },
   { label: "ethers.js", score: 2.5 },
-  { label: "Cypress", score: 2 },
-  { label: "React Testing Library", score: 3 },
+  { label: "E2E testing", score: 2 },
+  { label: "Unit Testing", score: 3 },
   { label: "Solidity", score: 1 }
 ];
 

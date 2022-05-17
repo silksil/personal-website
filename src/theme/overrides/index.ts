@@ -8,7 +8,8 @@ import Rating from "./Rating";
 import Button from "./Button";
 import Typography from "./Typography";
 import Avatar from "./Avatar";
+import Card from "./Card";
 
 export default function ComponentsOverrides(theme: Theme) {
-  return merge(Tabs(theme), Lists(theme), Paper(theme), Button(theme), Rating(theme), Drawer(theme), Typography(theme), Avatar(theme));
+  return merge(Tabs(theme), Lists(theme), Paper(theme), Button(theme), Rating(theme), Drawer(theme), Typography(theme), Avatar(theme), Card(theme));
 }

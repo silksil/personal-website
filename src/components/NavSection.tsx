@@ -10,7 +10,8 @@ interface ListItemStyleProps extends ListItemButtonProps {
 }
 
 const ListItemStyle = styled(ListItemButton)<ListItemStyleProps>(({ theme }) => ({
-  ...theme.typography.caption,
+  ...theme.typography.body2,
+  fontWeight: "bold",
   height: 48,
   position: "relative",
   paddingLeft: theme.spacing(5),

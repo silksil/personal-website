@@ -7,7 +7,7 @@ import { Logo } from "../../components/Logo";
 import { NavSection } from "../../components/NavSection";
 import { navbarConfig } from "./navbarConfig";
 import { MHidden } from "src/components/MHidden";
-import { ThemeSwitch } from "src/containers/ThemeSwitch";
+// import { ThemeSwitch } from "src/containers/ThemeSwitch";
 
 const DRAWER_WIDTH = 200;
 
@@ -61,7 +61,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: Dash
           </Box>
 
           <NavSection navConfig={navbarConfig} />
-          <ThemeSwitch sx={{ ml: 8, position: "absolute", bottom: 12 }} />
+          {/* <ThemeSwitch sx={{ ml: 8, position: "absolute", bottom: 12 }} /> */}
         </Drawer>
       </MHidden>
     </RootStyle>

@@ -24,7 +24,7 @@ declare module "@mui/material/styles" {
   }
 }
 export default function ThemeConfig({ children }: ThemeConfigProps) {
-  const [isLight, setIsLight] = useLocalStorage("themeIsLight", true);
+  const [isLight, setIsLight] = useLocalStorage("themeIsLight", false);
 
   const themeOptions: ThemeOptions = useMemo(
     () => ({

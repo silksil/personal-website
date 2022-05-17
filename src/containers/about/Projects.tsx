@@ -21,7 +21,7 @@ export function Projects() {
     <Grid container spacing={{ xs: 4, md: 4 }}>
       {projects.map(({ title, description, imgSrc, url }) => (
         <Grid item xs={12} md={6} lg={6}>
-          <Link href={url} target="_blank">
+          <Link href={url} target="_blank" sx={{ textDecoration: "none" }}>
             <ProjectCard key={title} title={title} description={description} imgSrc={imgSrc} />
           </Link>
         </Grid>

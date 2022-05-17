@@ -11,6 +11,8 @@ interface CardProps extends BoxProps {
 
 const Card = styled(BaseCard)(({ theme }) => ({
   width: "100%",
+  "&:hover": { backgroundColor: theme.palette.background.neutral },
+
   [theme.breakpoints.up("md")]: {
     width: "400px",
     height: "320px"
@@ -23,7 +25,7 @@ export function ProjectCard({ title, description, imgSrc }: CardProps) {
       <Box component="img" src={imgSrc} sx={{ height: "200px", width: "100%", objectFit: "cover" }} />
       <CardContent>
         <Typography variant="subtitle1">{title}</Typography>
-        <Typography>{description}</Typography>
+        <Typography variant="body2">{description}</Typography>
       </CardContent>
     </Card>
   );

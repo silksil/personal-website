@@ -1,16 +1,16 @@
-import { Grid, Typography, alpha } from "@mui/material";
+import { Grid, Typography, alpha, Link } from "@mui/material";
 import { styled } from "@mui/system";
 
 const Box = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadiusMd,
   padding: theme.spacing(1, 2),
-  minHeight: 360,
+  minHeight: 370,
 
   textAlign: "center",
-  background: alpha(theme.palette.primary.main, 0.1),
+  background: alpha(theme.palette.primary.main, 0.05),
   "&:hover": {
-    background: alpha(theme.palette.primary.main, 0.4)
+    background: alpha(theme.palette.primary.main, 0.2)
   },
 
   [theme.breakpoints.up("sm")]: {
@@ -28,13 +28,23 @@ interface SoftSkillsProps {
   items: Array<Item>;
 }
 
+const ProcessDrivenDescription = () => (
+  <div>
+    Through reading books, creating my own{" "}
+    <Link href="https://aluminum-newsstand-33e.notion.site/New-Project-Template-dcf3aad748114f33864007ae874c2e10" target="_blank">
+      working system
+    </Link>
+    , and having years of experience with Scrum, I feel confident in setting up and leading a process.
+  </div>
+);
+
 const strenghts = [
   { title: "Empowering team dynamics", description: "Through awareness, empathy, and not avoiding conflict, I foster feedback loops that keep a team focused and improve team dynamics." },
-  { title: "Process-driven", description: "Through reading books, creating my own working system, and having years of experience with Scrum, I feel confident in setting up and leading a process." }
+  { title: "Process-driven", description: <ProcessDrivenDescription /> }
 ];
 
 const weaknesses = [
-  { title: "Specific skills and knowledge", description: "Because I have no computer science degree and have mostly focused on frontend development, I sometimes experience that I am lacking a broad base of technical knowledge." },
+  { title: "Specific skills and knowledge", description: "I am lacking a broad base of technical knowledge: I have no computer science degree and have mostly focused on frontend development" },
   { title: "Perfectionism  ", description: "I've worked a year on a personal project that I never shipped due to thinking too big and perfectionism. Conciously trying to work on this through reflection and building in public." }
 ];
 
@@ -53,10 +63,10 @@ const SWOTBox = ({ title, items }: SoftSkillsProps) => {
       </Typography>
       {items?.map(({ title, description }) => (
         <>
-          <Typography variant="subtitle1" color="primary" sx={{ mt: 2 }}>
+          <Typography variant="subtitle1" color="text.secondary" sx={{ mt: 2 }}>
             {title}
           </Typography>
-          <Typography>{description}</Typography>
+          <Typography variant="body2">{description}</Typography>
         </>
       ))}
     </Box>

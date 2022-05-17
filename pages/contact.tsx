@@ -1,7 +1,7 @@
 import { Page } from "src/components/Page";
 import { DashboardLayout } from "src/layouts/dashboard";
-import { PageTitle } from "src/components/PageTitle";
-import { Container } from "@mui/material";
+import { PageHeading } from "src/components/PageHeading";
+import { Container, Typography } from "@mui/material";
 import { SocialIcons } from "src/containers/SocialIcons";
 
 export default function Contact() {
@@ -9,8 +9,8 @@ export default function Contact() {
     <DashboardLayout>
       <Page title="React Ts Boilerplate" id="move_top">
         <Container maxWidth="md" sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
-          <PageTitle title="Contact" />
-
+          <PageHeading title="Contact" />
+          <Typography>Find and message my here:</Typography>
           <SocialIcons />
         </Container>
       </Page>
