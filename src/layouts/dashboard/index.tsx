@@ -38,11 +38,11 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       <MHidden width="lgDown">
         <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
       </MHidden>
-      <NoSsr>
+      {/* <NoSsr>
         <MHidden width="lgUp">
           <DashboardBottomTabNavigator />
         </MHidden>
-      </NoSsr>
+      </NoSsr> */}
       <MainStyle>{children}</MainStyle>
     </RootStyle>
   );
