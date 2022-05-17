@@ -2,12 +2,12 @@ import { Grid, Rating, Typography } from "@mui/material";
 
 const skills = [
   { label: "React", score: 4 },
+  { label: "React Native", score: 3 },
   { label: "Javascript", score: 4 },
   { label: "Typescript", score: 2.5 },
   { label: "UX/UI", score: 2.5 },
   { label: "Figma", score: 2.5 },
   { label: "GraphQL", score: 3.5 },
-  { label: "Apollo", score: 3.5 },
   { label: "CSS", score: 4 },
   { label: "ethers.js", score: 2.5 },
   { label: "E2E testing", score: 2 },
