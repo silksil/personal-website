@@ -20,10 +20,18 @@ const MainStyle = styled("div")(({ theme }) => ({
   backgroundImage: "url(/static/background.jpeg)",
   paddingTop: APP_BAR_MOBILE + 32,
   paddingBottom: theme.spacing(10),
+  backgroundSize: "100% 100vh",
+  backgroundRepeat: "no-repeat",
+
   [theme.breakpoints.up("lg")]: {
+    backgroundSize: "100% 100%",
     paddingTop: APP_BAR_DESKTOP + 32,
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2)
+  },
+
+  [theme.breakpoints.up("xl")]: {
+    backgroundSize: "100vw 100vh"
   }
 }));
 
