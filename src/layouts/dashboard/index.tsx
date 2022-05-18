@@ -31,7 +31,7 @@ const MainStyle = styled("div")(({ theme }) => ({
   },
 
   [theme.breakpoints.up("xl")]: {
-    backgroundSize: "100vw 100vh"
+    backgroundSize: "100% 100%"
   }
 }));
 
