@@ -4,8 +4,7 @@ import { styled } from "@mui/system";
 const Box = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadiusMd,
-  padding: theme.spacing(1, 2),
-  minHeight: 390,
+  padding: theme.spacing(2, 2),
   textAlign: "center",
 
   background: alpha(theme.palette.primary.main, 0.05),
@@ -16,6 +15,10 @@ const Box = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
     textAlign: "left",
     padding: theme.spacing(3)
+  },
+
+  [theme.breakpoints.up("md")]: {
+    minHeight: 390
   }
 }));
 

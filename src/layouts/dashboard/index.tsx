@@ -17,12 +17,23 @@ const MainStyle = styled("div")(({ theme }) => ({
   flexGrow: 1,
   overflow: "auto",
   minHeight: "100%",
-  backgroundImage: "url(/static/background.jpeg)",
   paddingTop: APP_BAR_MOBILE + 32,
   paddingBottom: theme.spacing(10),
   backgroundSize: "100% 100vh",
-  backgroundRepeat: "no-repeat",
 
+  "&:before": {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    content: "close-quote",
+    top: "0px",
+    right: "0px",
+    backgroundRepeat: "no-repeat",
+    opacity: 0.64,
+    backgroundImage: "url(/static/background.jpeg)",
+    backgroundSize: "100% 100%",
+    zIndex: -1
+  },
   [theme.breakpoints.up("lg")]: {
     backgroundSize: "100% 100%",
     paddingTop: APP_BAR_DESKTOP + 32,
@@ -30,9 +41,7 @@ const MainStyle = styled("div")(({ theme }) => ({
     paddingRight: theme.spacing(2)
   },
 
-  [theme.breakpoints.up("xl")]: {
-    backgroundSize: "100% 100%"
-  }
+  [theme.breakpoints.up("xl")]: {}
 }));
 
 type DashboardLayoutProps = {
