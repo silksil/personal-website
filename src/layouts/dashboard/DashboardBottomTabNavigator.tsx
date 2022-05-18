@@ -12,14 +12,12 @@ type NavItemProps = {
 };
 
 const NavItem = ({ path, title, icon }: NavItemProps) => {
-  const theme = useTheme();
   const { pathname } = useRouter();
   const isActiveRoot = pathname === path;
 
   const activeRootStyle = {
     color: "primary.main",
     fontWeight: "fontWeightMedium",
-
     "&:before": { display: "block" }
   };
 

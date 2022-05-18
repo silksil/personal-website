@@ -17,6 +17,7 @@ const MainStyle = styled("div")(({ theme }) => ({
   flexGrow: 1,
   overflow: "auto",
   minHeight: "100%",
+  backgroundImage: "url(/static/background.jpeg)",
   paddingTop: APP_BAR_MOBILE + 32,
   paddingBottom: theme.spacing(10),
   [theme.breakpoints.up("lg")]: {
@@ -35,15 +36,17 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
   return (
     <RootStyle>
-      <MHidden width="lgDown">
-        <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
-      </MHidden>
+      <NoSsr>
+        <MHidden width="lgDown">
+          <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
+        </MHidden>
+      </NoSsr>
       {/* <NoSsr>
         <MHidden width="lgUp">
           <DashboardBottomTabNavigator />
         </MHidden>
       </NoSsr> */}
-      <MainStyle>{children}</MainStyle>
+      <MainStyle className="main-style">{children}</MainStyle>
     </RootStyle>
   );
 }
