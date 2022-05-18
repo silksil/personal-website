@@ -5,7 +5,7 @@ const Box = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadiusMd,
   padding: theme.spacing(1, 2),
-  minHeight: 370,
+  minHeight: 390,
   textAlign: "center",
 
   background: alpha(theme.palette.primary.main, 0.05),
@@ -43,17 +43,17 @@ const strenghts = [
   { title: "Process-driven", description: <ProcessDrivenDescription /> }
 ];
 
-const weaknesses = [
-  { title: "Specific skills and knowledge", description: "Because I have no computer science degree and have focused on frontend development, I am lacking a broad base of technical knowledge." },
-  { title: "Shipping fast ", description: "I've worked a year on a personal project that I never shipped due to thinking too big and perfectionism. Consciously trying to work on this through reflection and building in public." }
-];
+const weaknesses = [{ title: "Specific skills and knowledge", description: "Because I have no computer science degree and have focused on frontend development, I am lacking a broad base of technical knowledge." }];
 
 const opportunities = [
   { title: "Leadership", description: "Last year I purposively decided to invest time in learning how to lead through reading books and following a course. Made a good start, but I still have a lot of learning to do." },
   { title: "Product/UX ", description: "Because I get excited about good UX and have a good understanding of user needs, I see an opportunity to further develop my product management and UX skills." }
 ];
 
-const threats = [{ title: "Energy management", description: "Enthusiasm and drive can cause me to work too much and take too little rest. This can negatively impact my mental health and productivity. Working on this through developing certain habits (e.g. meditation) and reflection." }];
+const threats = [
+  { title: "Energy management", description: "Enthusiasm and drive can cause me to work too much and take too little rest. This can negatively impact my mental health and productivity. Working on this by following certain habits, for example meditation." },
+  { title: "Thinking too big", description: "I've worked a year on a personal project that I never shipped due to thinking too big and perfectionism. Consciously trying to work on this through reflection and building in public." }
+];
 
 const SWOTBox = ({ title, items }: SoftSkillsProps) => {
   return (
@@ -80,10 +80,10 @@ export function SoftSkills() {
         <SWOTBox title="Strengths" items={strenghts}></SWOTBox>
       </Grid>
       <Grid item xs={12} md={6} lg={6}>
-        <SWOTBox title="Weaknesses" items={weaknesses}></SWOTBox>
+        <SWOTBox title="Opportunities" items={opportunities}></SWOTBox>
       </Grid>
       <Grid item xs={12} md={6} lg={6}>
-        <SWOTBox title="Opportunities" items={opportunities}></SWOTBox>
+        <SWOTBox title="Weaknesses" items={weaknesses}></SWOTBox>
       </Grid>
       <Grid item xs={12} md={6} lg={6}>
         <SWOTBox title="Threats" items={threats}></SWOTBox>
