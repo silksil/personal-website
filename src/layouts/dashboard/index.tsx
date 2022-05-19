@@ -53,11 +53,8 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
   return (
     <RootStyle>
-      <NoSsr>
-        <MHidden width="lgDown">
-          <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
-        </MHidden>
-      </NoSsr>
+      <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
+
       {/* <NoSsr>
         <MHidden width="lgUp">
           <DashboardBottomTabNavigator />

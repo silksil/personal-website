@@ -6,7 +6,6 @@ const Box = styled("div")(({ theme }) => ({
   borderRadius: theme.shape.borderRadiusMd,
   padding: theme.spacing(2, 2),
   textAlign: "center",
-
   background: alpha(theme.palette.primary.main, 0.05),
   "&:hover": {
     background: alpha(theme.palette.primary.main, 0.2)
