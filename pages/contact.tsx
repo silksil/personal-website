@@ -7,7 +7,7 @@ import { SocialIcons } from "src/containers/SocialIcons";
 export default function Contact() {
   return (
     <DashboardLayout>
-      <Page title="React Ts Boilerplate" id="move_top">
+      <Page title="Sil Kreulen Contact" id="move_top">
         <Container maxWidth="md" sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
           <PageHeading title="Contact" />
           <Typography>Find and message my here:</Typography>

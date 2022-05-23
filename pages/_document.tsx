@@ -21,8 +21,8 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-          <meta name="description" content="React ts Boilerplate" />
-          <meta name="keywords" content="react" />
+          <meta name="description" content="Sil Kreulen is a front-end developer who is passionate about web3 and UX" />
+          <meta name="keywords" content="frontend, react, web3, ux, next, grahpql, developers dao, blockchain" />
           <meta name="author" content="Sil Kreulen" />
         </Head>
 
