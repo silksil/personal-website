@@ -1,25 +1,25 @@
-import { Box, Tab, Tabs as BaseTabs, Typography } from "@mui/material";
-import React, { SyntheticEvent, useState } from "react";
-import { HardSkills } from "./HardSkills";
-import { SoftSkills } from "./SoftSkills";
-import { Projects } from "./Projects";
+import { Box, Tab, Tabs as BaseTabs, Typography } from '@mui/material';
+import React, { SyntheticEvent, useState } from 'react';
+import { HardSkills } from './HardSkills';
+import { Intro } from './Intro';
+import { Projects } from './Projects';
 
 const tabItems = [
   {
-    label: "Hard skills",
-    children: <HardSkills />
+    label: 'Hard skills',
+    children: <HardSkills />,
   },
+  { label: 'Intro', children: <Intro /> },
   {
-    label: "Side Projects",
-    children: <Projects />
+    label: 'Side Projects',
+    children: <Projects />,
   },
-  { label: "Soft skills", children: <SoftSkills /> }
 ];
 
 function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`
+    'aria-controls': `simple-tabpanel-${index}`,
   };
 }
 
@@ -51,8 +51,8 @@ export function AboutTabs() {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <BaseTabs value={value} onChange={handleChange} aria-label="tab navigator" sx={{ mb: 5, display: "block" }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <BaseTabs value={value} onChange={handleChange} aria-label="tab navigator" sx={{ mb: 5, display: 'block' }}>
         {tabItems.map(({ label }, index) => (
           <Tab label={label} {...a11yProps(index)} key={label} />
         ))}
