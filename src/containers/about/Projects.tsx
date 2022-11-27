@@ -7,7 +7,7 @@ const projects = [
     description: 'Create an NFT collection that aims to raise funds for Ukraine by making fun of Putin. Responsible for the smart-contract, UI and front-end.',
     imgSrc: '/static/kmb.png',
     url: 'https://www.kmb.world/',
-    tools: ['React', 'ether.js', 'solidity'],
+    tools: ['React', 'ether.js', 'Solidity', 'UI'],
   },
   {
     title: 'Winding Tree',
@@ -28,7 +28,7 @@ const projects = [
     description: 'To develop my Figma tools I designed a app that makes it easy to capture your key learnings of books and podcasts.',
     url: 'https://www.figma.com/proto/ZcJ8SwTXlqLO5E7WCRBIwh/Stick?node-id=18%3A955&starting-point-node-id=146%3A0',
     imgSrc: '/static/stick.png',
-    tools: ['Figma'],
+    tools: ['Figma', 'UI', 'UX'],
   },
 ];
 
