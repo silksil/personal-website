@@ -6,12 +6,12 @@ import { Projects } from './Projects';
 
 const tabItems = [
   {
-    label: 'Hard skills',
+    label: 'Skills',
     children: <HardSkills />,
   },
   { label: 'Intro', children: <Intro /> },
   {
-    label: 'Side Projects',
+    label: 'Projects',
     children: <Projects />,
   },
 ];
@@ -52,7 +52,7 @@ export function AboutTabs() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <BaseTabs value={value} onChange={handleChange} aria-label="tab navigator" sx={{ mb: 5, display: 'block' }}>
+      <BaseTabs value={value} onChange={handleChange} aria-label="tab navigator" sx={{ mb: 3, display: 'block' }}>
         {tabItems.map(({ label }, index) => (
           <Tab label={label} {...a11yProps(index)} key={label} />
         ))}

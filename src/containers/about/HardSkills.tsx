@@ -4,14 +4,14 @@ const skills = [
   { label: 'React', score: 4.5 },
   { label: 'React Native', score: 3.5 },
   { label: 'Javascript', score: 4 },
+  { label: 'Next.js', score: 4 },
   { label: 'Typescript', score: 3.5 },
-  { label: 'UX/UI', score: 2.5 },
+  { label: 'UX/UI', score: 3 },
   { label: 'Figma', score: 2.5 },
   { label: 'GraphQL', score: 3.5 },
   { label: 'CSS', score: 4 },
   { label: 'ethers.js', score: 2.5 },
-  { label: 'E2E testing', score: 2 },
-  { label: 'Unit Testing', score: 3 },
+  { label: 'Unit + e2e testing', score: 2.5 },
   { label: 'Node.js', score: 2.5 },
 ];
 
