@@ -19,7 +19,11 @@ export function AboutHero() {
         <Typography component="span" fontWeight="bold">
           UX {isDesktop && <br />}
         </Typography>
-        and empowering my{' '}
+        and{' '}
+        <Typography component="span" fontWeight="bold">
+          empowering{' '}
+        </Typography>
+        <Typography component="span">my </Typography>
         <Typography component="span" fontWeight="bold">
           team members.
         </Typography>
