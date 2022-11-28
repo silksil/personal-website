@@ -75,7 +75,8 @@ export function Intro() {
   return (
     <Box>
       <Typography variant="body2" sx={{ textAlign: 'center' }}>
-        As a software developer, my primary responsibility is to code and create value for the client. Nonetheless, my passion lies in empowering my team members by focusing on the team its culture and processes. <br /> <br />
+        As a software developer, my primary responsibility is to code and create value for the client. Nonetheless, my passion lies in empowering my team members by focusing on the team culture and processes.
+        <br /> <br />
         To empower my team members, I focus on creating alignment on 1.) the software architecture and standards, 2.) the culture 3.) the way people communicate. I don't do this through force or by pretending that I have all the answers, but by facilitating a culture where everybody is heard and encouraged to take initiative, while also creating a climate where people confront each other with the truth.
       </Typography>
     </Box>

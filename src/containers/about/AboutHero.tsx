@@ -23,13 +23,12 @@ export function AboutHero() {
         <Typography component="span" fontWeight="bold">
           empowering{' '}
         </Typography>
-        <Typography component="span">my </Typography>
+        <Typography component="span">his </Typography>
         <Typography component="span" fontWeight="bold">
           team members.
         </Typography>
       </Typography>
       <Typography variant="body2"></Typography>
-
       <SocialIcons sx={{ mt: 1 }} />
     </Container>
   );
