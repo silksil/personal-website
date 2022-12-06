@@ -1,9 +1,9 @@
-import * as React from "react";
+import * as React from 'react';
 
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import createEmotionServer from "@emotion/server/create-instance";
-import createEmotionCache from "src/utils/createEmotionCache";
-import palette from "src/theme/palette";
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import createEmotionServer from '@emotion/server/create-instance';
+import createEmotionCache from 'src/utils/createEmotionCache';
+import palette from 'src/theme/palette';
 
 export default class MyDocument extends Document {
   render() {
@@ -21,8 +21,8 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-          <meta name="description" content="Sil Kreulen is a front-end developer who is passionate about web3 and UX" />
-          <meta name="keywords" content="frontend, react, web3, ux, next, grahpql, developers dao, blockchain" />
+          <meta name="description" content="Sil is a front-end developer who is passionate about beautiful UX and empowering his team members." />
+          <meta name="keywords" content="frontend, react, react native, web3, ux, ui, next.js, grahpql, developers dao, blockchain" />
           <meta name="author" content="Sil Kreulen" />
         </Head>
 
@@ -44,7 +44,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App: any) => (props) => <App emotionCache={cache} {...props} />
+      enhanceApp: (App: any) => (props) => <App emotionCache={cache} {...props} />,
     });
 
   const initialProps = await Document.getInitialProps(ctx);
@@ -52,7 +52,7 @@ MyDocument.getInitialProps = async (ctx) => {
   const emotionStyles = extractCriticalToChunks(initialProps.html);
   const emotionStyleTags = emotionStyles.styles.map((style) => (
     <style
-      data-emotion={`${style.key} ${style.ids.join(" ")}`}
+      data-emotion={`${style.key} ${style.ids.join(' ')}`}
       key={style.key}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: style.css }}
@@ -61,6 +61,6 @@ MyDocument.getInitialProps = async (ctx) => {
 
   return {
     ...initialProps,
-    styles: [...React.Children.toArray(initialProps.styles), ...emotionStyleTags]
+    styles: [...React.Children.toArray(initialProps.styles), ...emotionStyleTags],
   };
 };
