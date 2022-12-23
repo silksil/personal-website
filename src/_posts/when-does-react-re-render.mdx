@@ -1,0 +1,50 @@
+---
+title: 'When does react re-render'
+date: '2022-04-16'
+excerpt: 'Next.js has a built-in Image component that comes with a lot of performance optimization features when you are using it.'
+cover_image: 'path/to/where/image/is/stored'
+---
+
+# When do components re-render on how to deal with it.
+
+As a React developer, it is important to know when a component re-renders because it will update the UI based on changes and it can impact performance. This article will discuss when re-rendering happens, what “happens under the hood”, how it can impact performance and how to deal with re-rendering if it affects performance.
+
+## What triggers re-rendering?
+
+When React needs to update the app with new data, re-rendering occurs. In most cases, this occurs because users are interacting with the app or because some external data is coming through as an asynchronous request or a subscription model. This causes **state changes,** which result in re-rendering.
+
+State changes that cause a component to re-render can come from 4 different sources:
+
+- The **component** itself: state change causing a re-render of the component.
+- The **parent**: if the parent re-renders, all its children also re-render.
+- The **context**: all components that use this Context will re-render when the value in Context Provider changes, even if they don’t use the changed data directly.
+- The **hook**: a change in state in the hook, will cause a re-render in the “host” component that uses it.
+
+## What happens “under the hood” when re-rendering?
+
+Rendering a component and updating the DOM for that component are two separate steps in the lifecycle. After React re-renders, it updates the **virtual DOM** tree, which is only a virtual representation of the DOM that performs better than the real DOM. Once the virtual DOM has been updated, React compares the current version of the virtual DOM with the previous version of the virtual DOM. This process is called **“diffing”**. Once React knows which virtual DOM objects have changed, then React updates only those objects, in the real DOM. This makes the performance far better when compared to manipulating the real DOM directly. This whole process of comparing the virtual DOM and updating the ‘real’ DOM is referred to by React as **reconciliation**.
+
+> The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation. – React Documentation
+
+## Is re-rendering bad for performance and the user experience?
+
+There are two main reasons why knowing whether a component re-renders is important: 1.) it may **update the UI** based on changes and 2.) it will cause React’s Dom tree reconciliation, which can **impact performance.**
+
+Re-rendering components is often not a bad thing; components are often small and cheap. In many cases, using React will lead to a fast UI without putting a lot of effort into optimising for performance. However, if re-renders happen too frequently or on heavy components, this may result in a sluggish user experience, visible delays on every action, or the app becoming completely inoperable.
+
+## How to deal with re-rendering?
+
+If you want to prevent re-rendering from happening, they are different strategies that you can apply. Below are some examples, and some links to separate articles that dive deeper into these individual strategies:
+
+- Use `memo` to explicitly tell a component not to re-render if the props do not change.
+- Use `useMemo` or `useCallback` to avoid expensive calculations on every re-render.
+- Use composition: encapsulate state changes in a smaller component to make sure that state changes only affect this component and not other portions of the render tree.
+
+## Summary
+
+- A component re-renders due to state changes. State changes that cause a component to re-render can come from different places: state changes in the component, parent re-renders, context changes, and hooks changes.
+- React makes use of a lightweight copy of the actual DOM — aka virtual DOM — to track which parts have changed, to eventually only update those objects in the real DOM.
+- Re-rendering components is often not a bad thing; components are often small and cheap.
+- If re-renders happen too frequently or on heavy components, you can apply different strategies to deal with this, including `memo`, `useMemo` , `useCallback` and composition.
+
+Good luck re-rendering!

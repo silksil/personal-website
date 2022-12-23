@@ -1,12 +1,12 @@
-import Head from "next/head";
-import { AppProps } from "next/app";
-import { CacheProvider, EmotionCache } from "@emotion/react";
-import { CollapseDrawerProvider } from "src/contexts/CollapseDrawerContext";
-import ThemeConfig from "src/theme";
-import GlobalStyles from "src/theme/globalStyles";
-import createEmotionCache from "src/utils/createEmotionCache";
-import { ProgressBar } from "src/components/ProgressBar";
-import "../public/fonts/index.css";
+import Head from 'next/head';
+import { AppProps } from 'next/app';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import { CollapseDrawerProvider } from 'src/contexts/CollapseDrawerContext';
+import ThemeConfig from 'src/theme';
+import GlobalStyles from 'src/theme/globalStyles';
+import createEmotionCache from 'src/utils/createEmotionCache';
+import { ProgressBar } from 'src/components/ProgressBar';
+import '../../public/fonts/index.css';
 
 const clientSideEmotionCache = createEmotionCache();
 
