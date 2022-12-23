@@ -19,6 +19,8 @@ export default function MyApp(props: MyAppProps) {
 
   return (
     <CollapseDrawerProvider>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css"></link>
+
       <CacheProvider value={emotionCache}>
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />

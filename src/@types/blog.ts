@@ -2,8 +2,10 @@ import React from 'react';
 
 export interface IPost {
   data: IData;
-  content?: React.ReactNode;
+  content: IContent;
 }
+
+export type IContent = string;
 
 export interface IData {
   slug: string;

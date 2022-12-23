@@ -22,6 +22,7 @@
     "change-case": "^4.1.2",
     "date-fns": "^2.24.0",
     "framer-motion": "^4.1.17",
+    "global": "^4.4.0",
     "gray-matter": "^4.0.2",
     "lodash": "^4.17.21",
     "next": "^11.1.2",
@@ -38,13 +39,21 @@
     "remark-frontmatter": "^4.0.1",
     "simplebar": "^5.3.5",
     "simplebar-react": "^2.3.5",
-    "stylis": "^4.0.10",
-    "typescript": "^4.3.5"
+    "stylis": "^4.0.10"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.173",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.21",
-    "@types/react-scroll": "^1.8.3"
+    "@types/react-lazy-load-image-component": "^1.5.2",
+    "@types/react-scroll": "^1.8.3",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.30.0",
+    "eslint-config-next": "^12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-mdx": "^2.0.5",
+    "prettier": "^2.7.1",
+    "typescript": "^4.3.5"
   }
 }

@@ -1,26 +1,24 @@
-// @mui
 import { styled, alpha } from '@mui/material/styles';
-
-// ----------------------------------------------------------------------
 
 const StyledMarkdown = styled('div')(({ theme }) => {
   const isLight = theme.palette.mode === 'light';
 
   return {
-    // List
     '& ul, & ol': {
       ...theme.typography.body1,
-      paddingLeft: theme.spacing(5),
-      '& li': {
-        lineHeight: 2,
-      },
+      color: theme.palette.text.secondary,
+      paddingLeft: 0,
+      listStylePosition: 'inside',
+      // '& li': {
+      //   lineHeight: 1.4,
+      // },
     },
 
     // Blockquote
     '& blockquote': {
       lineHeight: 1.5,
-      fontSize: '1.5em',
-      margin: '40px auto',
+      fontSize: '1em',
+      margin: '32px auto',
       position: 'relative',
       fontFamily: 'Georgia, serif',
       padding: theme.spacing(3, 3, 3, 8),
@@ -48,24 +46,24 @@ const StyledMarkdown = styled('div')(({ theme }) => {
     },
 
     // Code Block
-    '& pre, & pre > code': {
-      fontSize: 16,
-      overflowX: 'auto',
-      whiteSpace: 'pre',
-      padding: theme.spacing(2),
-      color: theme.palette.common.white,
-      borderRadius: theme.shape.borderRadius,
-      backgroundColor: isLight ? theme.palette.grey[900] : alpha(theme.palette.grey[500], 0.16),
-    },
-    '& code': {
-      fontSize: 14,
-      borderRadius: 4,
-      whiteSpace: 'pre',
-      padding: theme.spacing(0.2, 0.5),
-      color: theme.palette.warning[isLight ? 'darker' : 'lighter'],
-      backgroundColor: theme.palette.warning[isLight ? 'lighter' : 'darker'],
-      '&.hljs': { padding: 0, backgroundColor: 'transparent' },
-    },
+    // '& pre, & pre > code': {
+    //   fontSize: 16,
+    //   overflowX: 'auto',
+    //   whiteSpace: 'pre',
+    //   padding: theme.spacing(2),
+    //   color: theme.palette.common.white,
+    //   borderRadius: theme.shape.borderRadius,
+    //   backgroundColor: isLight ? theme.palette.grey[900] : alpha(theme.palette.grey[500], 0.16),
+    // },
+    // '& code': {
+    //   // fontSize: 14,
+    //   borderRadius: 4,
+    //   whiteSpace: 'pre',
+    //   padding: theme.spacing(0.2, 0.5),
+    //   color: theme.palette.text.secondary,
+    //   backgroundColor: theme.palette.background.paper,
+    //   '&.hljs': { padding: 0, backgroundColor: 'transparent' },
+    // },
   };
 });
 
