@@ -13,7 +13,6 @@
     "mdx/language-mapper": {}
   },
   "rules": {
-    "arrow-body-style": 1,
     "react/display-name": 0,
     "import/no-duplicates": 1,
     "no-extra-boolean-cast": 1,

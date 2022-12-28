@@ -1,16 +1,21 @@
-import { Theme } from '@mui/material/styles';
+import { alpha, Theme } from '@mui/material/styles';
+
+const shadowIcon = (color: string) => `drop-shadow(5px 5px 5px ${alpha(color, 0.4)})`;
 
 export default function Typography(theme: Theme) {
   return {
     MuiTypography: {
       styleOverrides: {
         h1: {
+          filter: shadowIcon(theme.palette.text.primary),
           color: theme?.palette?.text?.primary,
         },
         h2: {
+          filter: shadowIcon(theme.palette.text.primary),
           color: theme?.palette?.text?.primary,
         },
         h3: {
+          filter: shadowIcon(theme.palette.text.primary),
           color: theme?.palette?.text?.primary,
         },
         h4: {

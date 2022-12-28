@@ -9,9 +9,6 @@ const StyledMarkdown = styled('div')(({ theme }) => {
       color: theme.palette.text.secondary,
       paddingLeft: 0,
       listStylePosition: 'inside',
-      // '& li': {
-      //   lineHeight: 1.4,
-      // },
     },
 
     // Blockquote
@@ -46,24 +43,25 @@ const StyledMarkdown = styled('div')(({ theme }) => {
     },
 
     // Code Block
-    // '& pre, & pre > code': {
-    //   fontSize: 16,
-    //   overflowX: 'auto',
-    //   whiteSpace: 'pre',
-    //   padding: theme.spacing(2),
-    //   color: theme.palette.common.white,
-    //   borderRadius: theme.shape.borderRadius,
-    //   backgroundColor: isLight ? theme.palette.grey[900] : alpha(theme.palette.grey[500], 0.16),
-    // },
-    // '& code': {
-    //   // fontSize: 14,
-    //   borderRadius: 4,
-    //   whiteSpace: 'pre',
-    //   padding: theme.spacing(0.2, 0.5),
-    //   color: theme.palette.text.secondary,
-    //   backgroundColor: theme.palette.background.paper,
-    //   '&.hljs': { padding: 0, backgroundColor: 'transparent' },
-    // },
+    '& pre, & pre > code': {
+      margin: theme.spacing(4, 0),
+      fontSize: 16,
+      overflowX: 'auto',
+      whiteSpace: 'pre',
+      padding: theme.spacing(1),
+      color: theme.palette.common.white,
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: isLight ? theme.palette.grey[900] : alpha(theme.palette.grey[500], 0.16),
+    },
+    '& code': {
+      // fontSize: 14,
+      borderRadius: 4,
+      whiteSpace: 'pre',
+      padding: theme.spacing(0.2, 0.5),
+      color: theme.palette.text.secondary,
+      backgroundColor: theme.palette.background.paper,
+      '&.hljs': { padding: 0, backgroundColor: 'transparent' },
+    },
   };
 });
 

@@ -7,15 +7,15 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { IData, IPost } from 'src/@types/blog';
 import rehypeHighlight from 'rehype-highlight';
 
-const POST_PATH = '/src/_posts';
+const POSTS_PATH = '/src/data/_posts';
 
 const normalizeArticleData = (frontMatter: any, content: any, slug: string): IData => {
   return {
     coverImage: frontMatter.cover_image,
-    excerpt: frontMatter.excerpt,
+    description: frontMatter.description,
     slug: slug,
     title: frontMatter.title,
-    date: new Date(frontMatter.date).toISOString(),
+    createdAt: new Date(frontMatter.createdAt).toISOString(),
     readingTime: Math.ceil(readingTime(content).minutes),
   };
 };
@@ -40,11 +40,11 @@ export const getPost = async ({ slug }: { slug: string }) => {
 };
 
 export const getAllPosts = (): IPost[] => {
-  const articles = fs.readdirSync(path.join(process.cwd(), POST_PATH));
+  const articles = fs.readdirSync(path.join(process.cwd(), POSTS_PATH));
 
-  return articles.reduce((allArticles: any, articleSlug: string) => {
+  const normalizedArticles = articles.reduce((allArticles: any, articleSlug: string) => {
     // get parsed data from mdx files in the "articles" dir
-    const source = fs.readFileSync(path.join(process.cwd(), POST_PATH, articleSlug), 'utf-8');
+    const source = fs.readFileSync(path.join(process.cwd(), POSTS_PATH, articleSlug), 'utf-8');
     const { data, content } = matter(source);
 
     return [
@@ -54,10 +54,14 @@ export const getAllPosts = (): IPost[] => {
       ...allArticles,
     ];
   }, []);
+
+  const sortedArticles = sortByDate(normalizedArticles);
+
+  return sortedArticles;
 };
 
 export const getArticleData = ({ slug }: { slug: string }): IPost => {
-  const fullPath = path.join(process.cwd(), POST_PATH, `${slug}.mdx`);
+  const fullPath = path.join(process.cwd(), POSTS_PATH, `${slug}.mdx`);
   const raw = fs.readFileSync(fullPath, 'utf8');
 
   const { data, content } = matter(raw);
@@ -70,6 +74,14 @@ export const getArticleData = ({ slug }: { slug: string }): IPost => {
 
 export const getArticleSlugs = (): string[] =>
   fs
-    .readdirSync(path.join(process.cwd(), POST_PATH))
+    .readdirSync(path.join(process.cwd(), POSTS_PATH))
     .filter((file) => /\.mdx?$/.test(file))
     .map((file) => file.replace(/\.mdx?$/, ''));
+
+const sortByDate = (articles: IPost[]): IPost[] =>
+  articles.sort((a, b) => {
+    if (a.data.createdAt > b.data.createdAt) return 1;
+    if (a.data.createdAt < b.data.createdAt) return -1;
+
+    return 0;
+  });

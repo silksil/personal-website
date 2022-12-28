@@ -1,13 +1,22 @@
 import { Container, Typography, Avatar, useMediaQuery, useTheme } from '@mui/material';
 import { PageHeading } from 'src/components/PageHeading';
-import { SocialIcons } from '../SocialIcons';
+import { SocialIcons } from '../../components/SocialIcons';
 
 export function AboutHero() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
   return (
-    <Container maxWidth="md" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 4, textAlign: 'center' }}>
+    <Container
+      maxWidth="md"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        mb: 4,
+        textAlign: 'center',
+      }}
+    >
       <Avatar src="/static/sil.png" sx={{ width: 100, height: 100 }} />
       <PageHeading title="Sil Kreulen" />
       <Typography>
@@ -28,7 +37,6 @@ export function AboutHero() {
           team members.
         </Typography>
       </Typography>
-      <Typography variant="body2"></Typography>
       <SocialIcons sx={{ mt: 1 }} />
     </Container>
   );

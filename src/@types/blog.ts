@@ -10,8 +10,10 @@ export type IContent = string;
 export interface IData {
   slug: string;
   title: string;
-  date: Date | string;
+  createdAt: Date | string;
+  lastUpdatedAt?: Date | string;
   coverImage: string;
-  excerpt: string;
+  description: string;
   readingTime: number;
+  tags?: string[];
 }
