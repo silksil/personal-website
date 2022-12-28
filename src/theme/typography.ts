@@ -88,12 +88,12 @@ const typography = {
   body1: {
     fontFamily: FONT_PRIMARY,
     lineHeight: 1.5,
-    fontSize: pxToRem(20),
+    fontSize: pxToRem(18),
   },
   body2: {
     fontFamily: FONT_PRIMARY,
     lineHeight: 22 / 14,
-    fontSize: pxToRem(16),
+    fontSize: pxToRem(15),
   },
   caption: {
     fontFamily: FONT_PRIMARY,

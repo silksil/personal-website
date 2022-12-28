@@ -154,8 +154,6 @@ We should use useMemo and useCallback whenever we make “expensive” calculati
 
 In fact, including `useMemo` and `useCallback` can actually decrease performance, as **very line of code which is executed comes with a cost. E**ven if it would improve the performance, but the saving would be very minimal, the cost of making the code more complex is probably not worth it.
 
-> **Performance optimizations are not free. They ALWAYS come with a cost but do NOT always come with a benefit to offset that cost. —Kent C. Dodds**
-
 ### To deal with referential equality
 
 When React checks for any changes in a component, it may detect an unintended or unexpected change due to how JavaScript handles equality and shallow comparisons. This change in the React application will cause it to re-render unnecessarily. We will cover this more extensively in the next email.

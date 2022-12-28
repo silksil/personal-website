@@ -1,6 +1,7 @@
+import { Box } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 
-const StyledMarkdown = styled('div')(({ theme }) => {
+const StyledMarkdown = styled(Box)(({ theme }) => {
   const isLight = theme.palette.mode === 'light';
 
   return {

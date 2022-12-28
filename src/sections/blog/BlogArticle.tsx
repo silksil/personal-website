@@ -16,25 +16,40 @@ interface Props extends IData {
 export const BlogArticle = forwardRef<any, Props>(
   ({ title, createdAt, readingTime, coverImage, source, headings }, ref) => {
     const maxWidth = '640px';
-    return (
-      <article>
-        <header>
-          <Container maxWidth="md">
-            <Typography component="h1" variant="h2" sx={{ mb: 1 }}>
-              {title}
-            </Typography>
-            <Typography variant="body2" component="time">
-              {`${fDate(createdAt)} — ${readingTime} min read`}
-            </Typography>
+
+    const header = (
+      <header>
+        <Container maxWidth="md">
+          <Typography component="h1" variant="h2" sx={{ mb: 1 }}>
+            {title}
+          </Typography>
+          <Typography variant="body2" component="time">
+            {`${fDate(createdAt)} — ${readingTime} min read`}
+          </Typography>
+          <MHidden width="mdDown">
             <Image
               src={coverImage}
               alt={`Photo of article: ${title}`}
               ratio="16/9"
-              sx={{ my: 6, borderRadius: 2 }}
+              sx={{ mt: 3, mb: 6, borderRadius: 2 }}
             />
-          </Container>
-        </header>
-        <Grid container>
+          </MHidden>
+        </Container>
+        <MHidden width="mdUp">
+          <Image
+            src={coverImage}
+            alt={`Photo of article: ${title}`}
+            ratio="16/9"
+            sx={{ mt: 3, mb: 6 }}
+          />
+        </MHidden>
+      </header>
+    );
+
+    return (
+      <article>
+        {header}
+        <Grid container sx={{ overflow: { xs: 'hidden', md: 'visible' } }}>
           <MHidden width="lgUp">
             <Grid item xs={12}>
               <Box sx={{ maxWidth, margin: '0 auto', px: 2, mb: 6 }}>
@@ -46,18 +61,14 @@ export const BlogArticle = forwardRef<any, Props>(
             <Grid item xs={12} lg={2} />
           </MHidden>
           <Grid item xs={12} lg={8}>
-            <Box sx={{ maxWidth, margin: '0 auto', px: 2 }} ref={ref}>
-              <section>
-                <Markdown source={source} />
-              </section>
-              <Box component="footer" mt={4}>
-                <Typography variant="caption" color="text.secondary">
-                  Last updated: {fDate(createdAt)}
-                </Typography>
-              </Box>
+            <Box
+              sx={{ maxWidth, margin: '0 auto', boxSizing: 'border-box', px: 2 }}
+              ref={ref}
+              component="section"
+            >
+              <Markdown source={source} />
             </Box>
           </Grid>
-
           <MHidden width="lgDown">
             <Grid item lg={2}>
               <Box sx={{ position: 'sticky', top: 140, mr: 2 }}>

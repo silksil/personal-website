@@ -32,7 +32,6 @@ export default function MainLayout({ children, headerIsFixed = false }: Props) {
   return (
     <MainStyle>
       <Header headerIsFixed={headerIsFixed} />
-
       <Box
         component="main"
         sx={{

@@ -5,9 +5,9 @@ import { IPost } from 'src/@types/blog';
 import { GetStaticProps } from 'next';
 import { Container, Grid, Typography } from '@mui/material';
 import BlogPostCard from 'src/components/blog/BlogPostCard';
-import MainLayout from 'src/layouts/main/MainLayout';
 import { PATHS } from 'src/routes/paths';
 import { NextSeo } from 'next-seo';
+import MainLayout from 'src/layouts/main/MainLayout';
 
 export default function BlogPage({ posts }: { posts: IPost[] }) {
   return (
@@ -18,9 +18,9 @@ export default function BlogPage({ posts }: { posts: IPost[] }) {
           Blog
         </Typography>
         <Grid container spacing={3}>
-          {posts.map(({ data }) => {
+          {posts.map(({ data }, index) => {
             return (
-              <NextLink href={`/${PATHS.blog}/${data.slug}`} passHref key={data.title}>
+              <NextLink href={`${PATHS.blog}/${data.slug}`} key={index}>
                 <Grid key={data.title} item xs={12} sm={6} md={6}>
                   <BlogPostCard post={data} />
                 </Grid>
