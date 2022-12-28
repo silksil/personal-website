@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { IData, IPost } from 'src/@types/blog';
+import { IData, IHeadings, IPost } from 'src/@types/blog';
 import { getAllPosts, getArticleSlugs, getPost } from 'src/utils/blog';
 import { ParsedUrlQuery } from 'querystring';
 import { Box, Container, Typography, useTheme, Divider, Grid } from '@mui/material';
@@ -13,14 +13,16 @@ import { fDate } from 'src/utils/date';
 import { useScroll, m, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 import BlogPostCard from 'src/components/blog/BlogPostCard';
+import { BlogArticle } from 'src/sections/blog/BlogArticle';
 
 type Props = {
   source: MDXRemoteSerializeResult;
   data: IData;
   articles: IPost[];
+  headings: IHeadings;
 };
 
-const PostPage: React.FC<Props> = ({ source, data, articles }: Props) => {
+const PostPage: React.FC<Props> = ({ source, data, articles, headings }: Props) => {
   const theme = useTheme();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -45,8 +47,7 @@ const PostPage: React.FC<Props> = ({ source, data, articles }: Props) => {
   );
 
   const slicedArticles = articles.slice(0, 3);
-
-  const { title, description, createdAt, tags, coverImage, readingTime, slug } = data;
+  const { title, description, createdAt, tags, coverImage, slug } = data;
 
   return (
     <MainLayout>
@@ -72,36 +73,8 @@ const PostPage: React.FC<Props> = ({ source, data, articles }: Props) => {
         }}
       />
 
-      <article>
-        {progress}
-        <header>
-          <Container maxWidth="md">
-            <Typography component="h1" variant="h2" sx={{ mb: 1 }}>
-              {title}
-            </Typography>
-            <Typography variant="body2" component="time">
-              {`${fDate(createdAt)} — ${readingTime} min read`}
-            </Typography>
-            <Image
-              src={coverImage}
-              alt={`Photo of article: ${title}`}
-              ratio="16/9"
-              sx={{ my: 6, borderRadius: 2 }}
-            />
-          </Container>
-        </header>
-
-        <Box sx={{ maxWidth: '640px', margin: '0 auto', px: 2 }} ref={ref}>
-          <section>
-            <Markdown source={source} />
-          </section>
-          <Box component="footer" mt={4}>
-            <Typography variant="caption" color="text.secondary">
-              Last updated: {fDate(createdAt)}
-            </Typography>
-          </Box>
-        </Box>
-      </article>
+      {progress}
+      <BlogArticle source={source} {...data} headings={headings} ref={ref} />
       <Divider sx={{ my: 8 }} />
       <Container maxWidth="lg">
         <Typography variant="h3" sx={{ mb: 2 }}>
@@ -128,12 +101,13 @@ interface IParams extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as IParams;
 
-  const { source, data } = await getPost({ slug });
+  const { source, data, headings } = await getPost({ slug });
   const articles = await getAllPosts();
 
   return {
     props: {
       source,
+      headings,
       data,
       articles,
     },

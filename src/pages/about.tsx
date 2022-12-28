@@ -1,6 +1,6 @@
-import { AboutHero } from 'src/containers/about/AboutHero';
+import { AboutHero } from 'src/sections/about/AboutHero';
 import { Page } from 'src/components/Page';
-import { AboutTabs } from 'src/containers/about/AboutTabs';
+import { AboutTabs } from 'src/sections/about/AboutTabs';
 import { Container } from '@mui/material';
 import MainLayout from 'src/layouts/main/MainLayout';
 

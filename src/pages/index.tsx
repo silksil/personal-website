@@ -1,4 +1,4 @@
-import { AboutHero } from 'src/containers/about/AboutHero';
+import { AboutHero } from 'src/sections/about/AboutHero';
 import { Page } from 'src/components/Page';
 import { Container, Grid } from '@mui/material';
 import MainLayout from 'src/layouts/main/MainLayout';

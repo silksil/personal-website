@@ -1,9 +1,10 @@
-import React from 'react';
-
 export interface IPost {
   data: IData;
   content: IContent;
+  headings?: IHeadings;
 }
+
+export type IHeadings = { text: string; level: number }[];
 
 export type IContent = string;
 

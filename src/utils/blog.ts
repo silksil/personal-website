@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import readingTime from 'reading-time';
 // import rehypePrism from 'rehype-prism-plus';
 import { serialize } from 'next-mdx-remote/serialize';
-import { IData, IPost } from 'src/@types/blog';
+import { IContent, IData, IPost } from 'src/@types/blog';
 import rehypeHighlight from 'rehype-highlight';
 
 const POSTS_PATH = '/src/data/_posts';
@@ -20,6 +20,26 @@ const normalizeArticleData = (frontMatter: any, content: any, slug: string): IDa
   };
 };
 
+function getHeadings(source: IContent) {
+  // Get each line individually, and filter out anything that
+  // isn't a heading.
+  const headingLines = source.split('\n').filter((line) => {
+    return line.match(/^###*\s/);
+  });
+
+  // Transform the string '## Some text' into an object
+  // with the shape '{ text: 'Some text', level: 2 }'
+  return headingLines.map((raw) => {
+    const text = raw.replace(/^###*\s/, '');
+    // I only care about h2 and h3.
+    // If I wanted more levels, I'd need to count the
+    // number of #s.
+    const level = raw.slice(0, 3) === '###' ? 3 : 2;
+
+    return { text, level };
+  });
+}
+
 export const getPost = async ({ slug }: { slug: string }) => {
   const { data, content } = getArticleData({ slug });
 
@@ -31,11 +51,14 @@ export const getPost = async ({ slug }: { slug: string }) => {
 
   const { compiledSource } = source;
 
+  const tableOfContents = getHeadings(content);
+
   return {
     data,
     source: {
       compiledSource,
     },
+    headings: tableOfContents,
   };
 };
 

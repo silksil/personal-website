@@ -11,7 +11,7 @@ Memoization is a technique that helps you “remember” expensive functions in 
 
 For example, if we have a function compute `1 x 2`, it will return `2`. But if it uses memoization, the next time we run the the function, it will not execute function again. Instead, it will remember that the answer is `2`  without executing the function.
 
-# useMemo()
+## useMemo()
 
 useMemo is a hook that allows you using memoization by wrapping a function with the hook. It does this by accepting 2 arguments: a function that `computes` a result, and the `depedencies` array.
 
@@ -25,7 +25,7 @@ If during next renderings the dependencies don't change, then `useMemo()` *doe
 
 But if dependencies change during re-rendering, then `useMemo()` *invoke*`compute` again, memoizes the new value, and returns it. If your dependencies array is not provided, there is no possibility of memoization, and it will invoke compute on every render.
 
-# useMemo() - Example
+### useMemo() - Example
 
 A component `<App />` does three main things:
 
@@ -148,7 +148,7 @@ const App = () => {
 - To prevent computationally expensive calculations
 - To deal with referential equality
 
-### **To prevent computationally expensive calculations**
+### To prevent computationally expensive calculations
 
 We should use useMemo and useCallback whenever we make “expensive” calculations. But what is expensive? Re-rendering components of which the UI isn’t impacted by state changes is often not a bad thing, as components are often small and cheap.
 
