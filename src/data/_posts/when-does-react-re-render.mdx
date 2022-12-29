@@ -15,7 +15,7 @@ When React needs to update the app with new data, re-rendering occurs. In most c
 State changes that cause a component to re-render can come from 4 different sources:
 
 1.  **Component:** state changes in a component itself will cause a re-render of that component.
-2.  **Context**: all components that use a ` Context` will re-render when the value in the `Context` changes, even if they don’t use the changed data directly.
+2.  **Context**: all components that use a `Context` will re-render when the value in the `Context` changes, even if they don’t use the changed data directly.
 3.  **Hook**: a change in state in the hook, will cause a re-render in the “host” component that uses it.
 4.  **Parent**: if the parent re-renders, the default behaviour is that **all its children** **also re-render.**
 
