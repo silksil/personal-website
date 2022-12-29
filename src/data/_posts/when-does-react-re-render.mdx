@@ -1,23 +1,23 @@
 ---
 created_at: 'December 29, 2022'
-description: 'This article discusses 1.) when re-rendering happens, 2.) what happens “under the hood”, 3.) how it can impact performance and 4.) how to deal with it.'
+description: 'React re-rendering guide: when does it happen, what happens under the hood and how to deal with it for optimization.'
 tags: [Rendering, performance]
-title: 'React re-rendering: when does it happen and how to deal with it.'
+title: 'React Re-Render Guide: when does it happen and how to deal with it?'
 cover_image: 'react-rendering.jpg'
 ---
 
-As a React developer, it is important to know when a component re-renders because it will update the UI based on changes and it can impact performance. This article will discuss 1.) when re-rendering happens, 2.) what happens “under the hood”, 3.) how it can impact performance and 4.) how to deal with re-rendering if it influences performance.
+As a React developer, it is important to know when a component re-renders, because it can affect UI and impact performance. This guide explains when re-rendering happens and what happens “under the hood”. It will also discuss when it can impact performance and how you should deal with it for optimization.
 
 ## What triggers re-rendering?
 
-When React needs to update the app with new data, re-rendering occurs. In most cases, this occurs because users are interacting with the app or because some external data is coming through as an asynchronous request. This causes state changes, which results in re-rendering. So, **every re-render in React starts with a state change.**
+When React needs to update the app with new data, re-rendering occurs. In most cases, this occurs because users are interacting with the app or because some external data is coming through as an asynchronous request. This causes state changes, which results in re-rendering. So, the easy answer to the question of this section: **every re-render in React starts with a state change.**
 
 State changes that cause a component to re-render can come from 4 different sources:
 
-- **Component:** state changes in a component itself cause a re-render of that component.
-- **Context**: all components that use a Context will re-render when the value in Context Provider changes, even if they don’t use the changed data directly.
-- **Hook**: a change in state in the hook, will cause a re-render in the “host” component that uses it.
-- **Parent**: if the parent re-renders, the default behaviour is that **all its children** **also re-render.**
+1.  **Component:** state changes in a component itself will cause a re-render of that component.
+2.  **Context**: all components that use a ` Context` will re-render when the value in the `Context` changes, even if they don’t use the changed data directly.
+3.  **Hook**: a change in state in the hook, will cause a re-render in the “host” component that uses it.
+4.  **Parent**: if the parent re-renders, the default behaviour is that **all its children** **also re-render.**
 
 Regarding the last bullet point, it is important to point out that when a component re-renders, it tries to re-render all descendants, regardless of whether they're being passed a particular state variable through props. A common misconception is that a component will re-render because its props change. **A component isn't re-rendering because the prop changed**, but because one of its state variables has changed. This state change will re-render all its children and cascade all the way down the tree.
 

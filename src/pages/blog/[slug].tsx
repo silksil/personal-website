@@ -4,8 +4,6 @@ import { IData, IHeadings, IPost } from 'src/@types/blog';
 import { getAllPosts, getArticleSlugs, getPost } from 'src/utils/blog';
 import { ParsedUrlQuery } from 'querystring';
 import { Box, Container, Typography, useTheme, Divider, Grid } from '@mui/material';
-import Image from 'src/components/image/Image';
-import Markdown from 'src/components/markdown/Markdown';
 import { NextSeo } from 'next-seo';
 import { BASE_URL } from 'src/config';
 import MainLayout from 'src/layouts/main/MainLayout';
