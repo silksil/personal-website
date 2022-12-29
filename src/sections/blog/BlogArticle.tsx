@@ -28,7 +28,7 @@ export const BlogArticle = forwardRef<any, Props>(
           </Typography>
           <MHidden width="mdDown">
             <Image
-              src={coverImage}
+              src={`/static/article-cover-images/${coverImage}`}
               alt={`Photo of article: ${title}`}
               ratio="16/9"
               sx={{ mt: 3, mb: 6, borderRadius: 2 }}
@@ -37,7 +37,7 @@ export const BlogArticle = forwardRef<any, Props>(
         </Container>
         <MHidden width="mdUp">
           <Image
-            src={coverImage}
+            src={`/static/article-cover-images/${coverImage}`}
             alt={`Photo of article: ${title}`}
             ratio="16/9"
             sx={{ mt: 3, mb: 6 }}

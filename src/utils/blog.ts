@@ -15,7 +15,7 @@ const normalizeArticleData = (frontMatter: any, content: any, slug: string): IDa
     description: frontMatter.description,
     slug: slug,
     title: frontMatter.title,
-    createdAt: new Date(frontMatter.createdAt).toISOString(),
+    createdAt: new Date(frontMatter.created_at).toISOString(),
     readingTime: Math.ceil(readingTime(content).minutes),
   };
 };

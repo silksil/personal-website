@@ -10,6 +10,7 @@ const StyledMarkdown = styled(Box)(({ theme }) => {
       color: theme.palette.text.secondary,
       paddingLeft: 0,
       listStylePosition: 'inside',
+      marginBottom: 24,
     },
 
     // Blockquote

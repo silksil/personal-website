@@ -40,7 +40,7 @@ const PostPage: React.FC<Props> = ({ source, data, articles, headings }: Props) 
         zIndex: 1999,
         position: 'fixed',
         transformOrigin: '0%',
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.secondary.main,
         scaleX,
       }}
     />

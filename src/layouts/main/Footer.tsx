@@ -28,7 +28,7 @@ export default function Footer() {
         </Stack>
 
         <Typography variant="caption" component="div" color="text.secondary">
-          © All rights reserved by Sil kreulen
+          © All rights reserved by Sil Kreulen
         </Typography>
       </Container>
     </Box>

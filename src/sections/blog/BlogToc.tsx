@@ -19,7 +19,7 @@ export const BlogToc = ({ headings }: { headings: IHeadings }) => {
       }}
     >
       <Typography component="h2" variant="h6">
-        Table of contents
+        In This Article
       </Typography>
       <List>
         {headings.map((heading) => {

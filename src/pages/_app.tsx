@@ -10,6 +10,7 @@ import { DefaultSeo } from 'next-seo';
 import '../../public/fonts/index.css';
 import { BASE_URL } from 'src/config';
 import MotionLazyContainer from 'src/components/animate/MotionLazyContainer';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const clientSideEmotionCache = createEmotionCache();
 

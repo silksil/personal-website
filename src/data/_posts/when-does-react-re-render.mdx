@@ -1,42 +1,49 @@
 ---
-title: 'When does react re-render'
-createdAt: '2022-04-16'
-description: 'Next.js has a built-in Image component that comes with a lot of performance optimization features when you are using it.'
-cover_image: https://res.cloudinary.com/kentcdodds-com/image/upload/w_2100,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1453728013993-6d66e9c9123a"
+created_at: 'December 29, 2022'
+description: 'This article discusses 1.) when re-rendering happens, 2.) what happens “under the hood”, 3.) how it can impact performance and 4.) how to deal with it.'
+tags: [Rendering, performance]
+title: 'React re-rendering: when does it happen and how to deal with it.'
+cover_image: 'react-rendering.jpg'
 ---
 
-As a React developer, it is important to know when a component re-renders because it will update the UI based on changes and it can impact performance. This article will discuss when re-rendering happens, what “happens under the hood”, how it can impact performance and how to deal with re-rendering if it affects performance.
+As a React developer, it is important to know when a component re-renders because it will update the UI based on changes and it can impact performance. This article will discuss 1.) when re-rendering happens, 2.) what happens “under the hood”, 3.) how it can impact performance and 4.) how to deal with re-rendering if it influences performance.
 
 ## What triggers re-rendering?
 
-When React needs to update the app with new data, re-rendering occurs. In most cases, this occurs because users are interacting with the app or because some external data is coming through as an asynchronous request or a subscription model. This causes **state changes,** which result in re-rendering.
+When React needs to update the app with new data, re-rendering occurs. In most cases, this occurs because users are interacting with the app or because some external data is coming through as an asynchronous request. This causes state changes, which results in re-rendering. So, **every re-render in React starts with a state change.**
 
 State changes that cause a component to re-render can come from 4 different sources:
 
-- The **component** itself: state change causing a re-render of the component.
-- The **parent**: if the parent re-renders, all its children also re-render.
-- The **context**: all components that use this Context will re-render when the value in Context Provider changes, even if they don’t use the changed data directly.
-- The **hook**: a change in state in the hook, will cause a re-render in the “host” component that uses it.
+- **Component:** state changes in a component itself cause a re-render of that component.
+- **Context**: all components that use a Context will re-render when the value in Context Provider changes, even if they don’t use the changed data directly.
+- **Hook**: a change in state in the hook, will cause a re-render in the “host” component that uses it.
+- **Parent**: if the parent re-renders, the default behaviour is that **all its children** **also re-render.**
 
-## What happens “under the hood” when re-rendering?
+Regarding the last bullet point, it is important to point out that when a component re-renders, it tries to re-render all descendants, regardless of whether they're being passed a particular state variable through props. A common misconception is that a component will re-render because its props change. **A component isn't re-rendering because the prop changed**, but because one of its state variables has changed. This state change will re-render all its children and cascade all the way down the tree.
+
+## What happens “under the hood” when React re-renders?
 
 Rendering a component and updating the DOM for that component are two separate steps in the lifecycle. After React re-renders, it updates the **virtual DOM** tree, which is only a virtual representation of the DOM that performs better than the real DOM. Once the virtual DOM has been updated, React compares the current version of the virtual DOM with the previous version of the virtual DOM. This process is called **“diffing”**. Once React knows which virtual DOM objects have changed, then React updates only those objects, in the real DOM. This makes the performance far better when compared to manipulating the real DOM directly. This whole process of comparing the virtual DOM and updating the ‘real’ DOM is referred to by React as **reconciliation**.
 
-> The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation. – React Documentation
+> _The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation._ – **React Documentation**
 
-## Is re-rendering bad for performance and the user experience?
+## Is re-rendering bad for performance?
 
-There are two main reasons why knowing whether a component re-renders is important: 1.) it may **update the UI** based on changes and 2.) it will cause React’s Dom tree reconciliation, which can **impact performance.**
-
-Re-rendering components is often not a bad thing; components are often small and cheap. In many cases, using React will lead to a fast UI without putting a lot of effort into optimising for performance. However, if re-renders happen too frequently or on heavy components, this may result in a sluggish user experience, visible delays on every action, or the app becoming completely inoperable.
+**Re-rendering components is often not a bad thing; components are often small and cheap**. In many cases, using React will lead to a fast UI without putting a lot of effort into optimising for performance. However, if re-renders happen too frequently or on heavy components, this may result in a sluggish user experience, visible delays on every action, or the app becoming completely inoperable.
 
 ## How to deal with re-rendering?
 
-If you want to prevent re-rendering from happening, they are different strategies that you can apply. Below are some examples, and some links to separate articles that dive deeper into these individual strategies:
+As mentioned, you often don’t have to focus on optimization, as React is highly optimised and re-renders often don't affect performance. Nonetheless, there are a couple of scenarios in which I do pay extra attention to re-rendering:
 
-- Use `memo` to explicitly tell a component not to re-render if the props do not change.
-- Use `useMemo` or `useCallback` to avoid expensive calculations on every re-render.
+- **Context**: There might be dozens of components that consume a specific Context. All of these components would be forced to re-render if the values in the parent change, and thus it is more likely to affect performance.
+- **Hooks**: If I create a custom reusable hook, the hook may be reused over lots of places in the app, and therefore it is more likely that it can impact performance.
+- **Lists**: If I have to display long lists, I pay extra attention to optimization, as one state change may result in re-renders of many components.
+
+If you eventually decide to optimise in order to deal with re-rendering, they are different strategies that you can apply, for example:
+
 - Use composition: encapsulate state changes in a smaller component to make sure that state changes only affect this component and not other portions of the render tree.
+- Use `useMemo` or `useCallback` to avoid expensive calculations on every re-render.
+- Use `memo` to explicitly tell a component not to re-render if the props do not change.
 
 ## Summary
 
@@ -44,5 +51,3 @@ If you want to prevent re-rendering from happening, they are different strategie
 - React makes use of a lightweight copy of the actual DOM — aka virtual DOM — to track which parts have changed, to eventually only update those objects in the real DOM.
 - Re-rendering components is often not a bad thing; components are often small and cheap.
 - If re-renders happen too frequently or on heavy components, you can apply different strategies to deal with this, including `memo`, `useMemo` , `useCallback` and composition.
-
-Good luck re-rendering!

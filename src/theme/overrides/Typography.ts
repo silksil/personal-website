@@ -1,6 +1,6 @@
 import { alpha, Theme } from '@mui/material/styles';
 
-const shadowIcon = (color: string) => `drop-shadow(5px 5px 5px ${alpha(color, 0.4)})`;
+const shadowIcon = (color: string) => `drop-shadow(4px 4px 4px ${alpha(color, 0.3)})`;
 
 export default function Typography(theme: Theme) {
   return {

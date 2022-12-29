@@ -12,7 +12,7 @@ export default function BlogPostCard({ post }: { post: IData }) {
   return (
     <Card sx={{ cursor: 'pointer' }}>
       <Box sx={{ position: 'relative' }}>
-        <Image alt="cover" ratio="16/9" src={coverImage} />
+        <Image alt="cover" ratio="16/9" src={`/static/article-cover-images/${coverImage}`} />
       </Box>
 
       <PostContent {...rest} />
@@ -63,7 +63,7 @@ export function PostContent({
         {fDate(createdAt)}
       </Typography>
 
-      <TextMaxLine variant="h4" line={2} persistent>
+      <TextMaxLine variant="h4" line={3} persistent>
         {title}
       </TextMaxLine>
       <TextMaxLine variant="body2" line={3} persistent sx={{ mt: 1 }}>
