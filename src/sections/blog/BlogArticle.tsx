@@ -28,7 +28,7 @@ export const BlogArticle = forwardRef<any, Props>(
               {subtitle}
             </Typography>
           )}
-          <Typography variant="body2" component="time">
+          <Typography variant="body2" color="text.disabled" component="time">
             {`${fDate(createdAt)} — ${readingTime} min read`}
           </Typography>
           <MHidden width="mdDown">
