@@ -24,7 +24,7 @@ export const BlogArticle = forwardRef<any, Props>(
             {title}
           </Typography>
           {subtitle && (
-            <Typography variant="subtitle1" sx={{ mb: 3 }}>
+            <Typography component="h2" variant="subtitle1" sx={{ mb: 3 }}>
               {subtitle}
             </Typography>
           )}
@@ -65,12 +65,8 @@ export const BlogArticle = forwardRef<any, Props>(
           <MHidden width="lgDown">
             <Grid item xs={12} lg={2} />
           </MHidden>
-          <Grid item xs={12} lg={8}>
-            <Box
-              sx={{ maxWidth, margin: '0 auto', boxSizing: 'border-box', px: 2 }}
-              ref={ref}
-              component="section"
-            >
+          <Grid item xs={12} lg={8} component="section">
+            <Box sx={{ maxWidth, margin: '0 auto', boxSizing: 'border-box', px: 2 }} ref={ref}>
               <Markdown source={source} />
             </Box>
           </Grid>

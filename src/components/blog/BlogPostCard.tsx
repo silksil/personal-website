@@ -63,7 +63,7 @@ export function PostContent({
         {fDate(createdAt)}
       </Typography>
 
-      <TextMaxLine variant="h4" line={3} persistent>
+      <TextMaxLine variant="h5" line={2} persistent>
         {title}
       </TextMaxLine>
       <TextMaxLine variant="body2" line={3} persistent sx={{ mt: 1 }}>

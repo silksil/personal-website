@@ -57,8 +57,6 @@ export const getPost = async ({ slug }: { slug: string }) => {
 
   const headings = getHeadings(content);
 
-  console.log(headings);
-
   return {
     data,
     source: {
