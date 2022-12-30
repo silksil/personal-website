@@ -1,4 +1,4 @@
-import { useMemo, ReactNode } from 'react';
+import { useMemo, ReactNode, Dispatch, SetStateAction } from 'react';
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
 import shape from './shape';
@@ -17,10 +17,10 @@ type ThemeConfigProps = {
 declare module '@mui/material/styles' {
   interface Theme {
     isLight: boolean;
-    setIsLight: Function;
+    setIsLight: Dispatch<SetStateAction<boolean>>;
   }
   interface ThemeOptions {
-    setIsLight?: Function;
+    setIsLight?: Dispatch<SetStateAction<boolean>>;
   }
 }
 export default function ThemeConfig({ children }: ThemeConfigProps) {
@@ -38,7 +38,7 @@ export default function ThemeConfig({ children }: ThemeConfigProps) {
       isLight,
       setIsLight,
     }),
-    [isLight]
+    [isLight, setIsLight]
   );
 
   const theme = createTheme(themeOptions);

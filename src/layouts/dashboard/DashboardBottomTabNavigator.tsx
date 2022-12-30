@@ -1,9 +1,8 @@
-import { alpha, BottomNavigation, BottomNavigationAction } from '@mui/material';
+import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import React from 'react';
 import { navbarConfig } from './navbarConfig';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import { useTheme } from '@mui/system';
 
 type NavItemProps = {
   title: string;
@@ -40,8 +39,6 @@ const NavItem = ({ path, title, icon }: NavItemProps) => {
 };
 
 export function DashboardBottomTabNavigator() {
-  const theme = useTheme();
-
   return (
     <BottomNavigation showLabels sx={{ position: 'fixed', bottom: 0, width: '100%' }}>
       {navbarConfig.map((item: NavItemProps) => (

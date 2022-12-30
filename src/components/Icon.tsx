@@ -1,11 +1,10 @@
-import { Icon as BaseIcon } from "@iconify/react";
-import { Theme } from "@mui/material";
-import { useTheme } from "@mui/material";
-import { BoxProps } from "@mui/system";
-import React from "react";
-import { ColorSchema } from "src/@types/theme";
+import { Icon as BaseIcon } from '@iconify/react';
+import { Theme, useTheme } from '@mui/material';
+import { BoxProps } from '@mui/system';
+import React from 'react';
+import { ColorSchema } from 'src/@types/theme';
 
-export type SizeType = "xs" | "s" | "m" | "l" | "xl";
+export type SizeType = 'xs' | 's' | 'm' | 'l' | 'xl';
 
 export type WidthHeightType = number | string;
 
@@ -26,10 +25,10 @@ interface getSizeProps {
 }
 
 const getColor = (color: ColorSchema, theme: Theme) => {
-  if (color === "info") return theme.palette.info.main;
-  if (color === "success") return theme.palette.success.main;
-  if (color === "warning") return theme.palette.warning.main;
-  if (color === "error") return theme.palette.error.main;
+  if (color === 'info') return theme.palette.info.main;
+  if (color === 'success') return theme.palette.success.main;
+  if (color === 'warning') return theme.palette.warning.main;
+  if (color === 'error') return theme.palette.error.main;
 
   return color;
 };
@@ -48,8 +47,15 @@ const getHeight = ({ size, height, theme }: getSizeProps) => {
   return theme.icons.m.height;
 };
 
-export function Icon({ size = "m", color = "primary", icon, width, height }: IconProps) {
+export function Icon({ size = 'm', color = 'primary', icon, width, height }: IconProps) {
   const theme = useTheme();
 
-  return <BaseIcon color={getColor(color, theme)} icon={icon} height={getHeight({ size, height, theme })} width={getWidth({ size, width, theme })} />;
+  return (
+    <BaseIcon
+      color={getColor(color, theme)}
+      icon={icon}
+      height={getHeight({ size, height, theme })}
+      width={getWidth({ size, width, theme })}
+    />
+  );
 }

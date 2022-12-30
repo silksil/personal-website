@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev -p 8222",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint --ext js,ts,tsx src"
   },
   "dependencies": {
     "@emotion/cache": "^11.4.0",

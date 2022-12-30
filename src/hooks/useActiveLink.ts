@@ -7,7 +7,6 @@ type ReturnType = {
 
 export default function useActiveLink(path: string, deep = true): ReturnType {
   const { pathname, asPath } = useRouter();
-
   const checkPath = path.startsWith('#');
 
   const currentPath = path === '/' ? '/' : `${path}`;

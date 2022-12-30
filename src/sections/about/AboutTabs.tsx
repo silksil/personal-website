@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs as BaseTabs, Typography } from '@mui/material';
+import { Box, Tab, Tabs as BaseTabs } from '@mui/material';
 import React, { SyntheticEvent, useState } from 'react';
 import { HardSkills } from './HardSkills';
 import { Intro } from './Intro';
@@ -52,7 +52,12 @@ export function AboutTabs() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <BaseTabs value={value} onChange={handleChange} aria-label="tab navigator" sx={{ mb: 3, display: 'block' }}>
+      <BaseTabs
+        value={value}
+        onChange={handleChange}
+        aria-label="tab navigator"
+        sx={{ mb: 3, display: 'block' }}
+      >
         {tabItems.map(({ label }, index) => (
           <Tab label={label} {...a11yProps(index)} key={label} />
         ))}

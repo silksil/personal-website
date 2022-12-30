@@ -1,10 +1,9 @@
 import { AboutHero } from 'src/sections/about/AboutHero';
 import { Page } from 'src/components/Page';
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import MainLayout from 'src/layouts/main/MainLayout';
 import { getAllPosts } from 'src/utils/blog';
 import { IPost } from 'src/@types/blog';
-import { Typography } from '@mui/material';
 import BlogPostCard from 'src/components/blog/BlogPostCard';
 
 export default function Projects({ articles }: { articles: IPost[] }) {

@@ -1,25 +1,25 @@
-import { useEffect } from "react";
-import NextLink from "next/link";
-import { useRouter } from "next/router";
-import { styled } from "@mui/material/styles";
-import { Box, Drawer } from "@mui/material";
-import { Logo } from "../../components/Logo";
-import { NavSection } from "../../components/NavSection";
-import { navbarConfig } from "./navbarConfig";
-import { MHidden } from "src/components/MHidden";
+import { useEffect } from 'react';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
+import { styled } from '@mui/material/styles';
+import { Box, Drawer } from '@mui/material';
+import { Logo } from '../../components/Logo';
+import { NavSection } from '../../components/NavSection';
+import { navbarConfig } from './navbarConfig';
+import { MHidden } from 'src/components/MHidden';
 
 const DRAWER_WIDTH = 200;
 
-const RootStyle = styled("div")(({ theme }) => ({
-  display: "none",
+const RootStyle = styled('div')(({ theme }) => ({
+  display: 'none',
 
-  [theme.breakpoints.up("lg")]: {
-    display: "block",
+  [theme.breakpoints.up('lg')]: {
+    display: 'block',
     flexShrink: 0,
-    transition: theme.transitions.create("width", {
-      duration: theme.transitions.duration.complex
-    })
-  }
+    transition: theme.transitions.create('width', {
+      duration: theme.transitions.duration.complex,
+    }),
+  },
 }));
 
 type DashboardSidebarProps = {
@@ -34,14 +34,15 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: Dash
     if (isOpenSidebar) {
       onCloseSidebar();
     }
-  }, [pathname]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpenSidebar, pathname]);
 
   return (
     <RootStyle
       sx={{
         width: {
-          lg: DRAWER_WIDTH
-        }
+          lg: DRAWER_WIDTH,
+        },
       }}
     >
       <MHidden width="lgDown">
@@ -50,10 +51,10 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: Dash
           variant="persistent"
           PaperProps={{
             sx: {
-              height: "100%",
+              height: '100%',
               width: DRAWER_WIDTH,
-              bgcolor: "background.neutral"
-            }
+              bgcolor: 'background.neutral',
+            },
           }}
         >
           <Box sx={{ ml: 2, mt: 2, mb: 5 }}>
