@@ -14,7 +14,7 @@ interface Props extends IData {
 }
 
 export const BlogArticle = forwardRef<any, Props>(
-  ({ title, createdAt, readingTime, coverImage, source, headings }, ref) => {
+  ({ title, createdAt, readingTime, coverImage, source, headings, subtitle }, ref) => {
     const maxWidth = '640px';
 
     const header = (
@@ -23,6 +23,11 @@ export const BlogArticle = forwardRef<any, Props>(
           <Typography component="h1" variant="h2" sx={{ mb: 1 }}>
             {title}
           </Typography>
+          {subtitle && (
+            <Typography variant="subtitle1" sx={{ mb: 3 }}>
+              {subtitle}
+            </Typography>
+          )}
           <Typography variant="body2" component="time">
             {`${fDate(createdAt)} — ${readingTime} min read`}
           </Typography>

@@ -11,6 +11,7 @@ export type IContent = string;
 export interface IData {
   slug: string;
   title: string;
+  subtitle?: string;
   createdAt: Date | string;
   lastUpdatedAt?: Date | string;
   coverImage: string;

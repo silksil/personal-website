@@ -30,6 +30,9 @@ export default function Typography(theme: Theme) {
         body2: {
           color: theme?.palette?.text?.secondary,
         },
+        subtitle1: {
+          color: theme?.palette?.text?.disabled,
+        },
         paragraph: {
           marginBottom: theme?.spacing(2),
         },

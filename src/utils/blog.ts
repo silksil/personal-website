@@ -17,6 +17,7 @@ const normalizeArticleData = (frontMatter: any, content: any, slug: string): IDa
     title: frontMatter.title,
     createdAt: new Date(frontMatter.created_at).toISOString(),
     readingTime: Math.ceil(readingTime(content).minutes),
+    subtitle: frontMatter.subtitle,
   };
 };
 
@@ -29,15 +30,18 @@ function getHeadings(source: IContent) {
 
   // Transform the string '## Some text' into an object
   // with the shape '{ text: 'Some text', level: 2 }'
-  return headingLines.map((raw) => {
-    const text = raw.replace(/^###*\s/, '');
-    // I only care about h2 and h3.
-    // If I wanted more levels, I'd need to count the
-    // number of #s.
-    const level = raw.slice(0, 3) === '###' ? 3 : 2;
+  return headingLines
+    .map((raw) => {
+      const text = raw.replace(/^###*\s/, '');
 
-    return { text, level };
-  });
+      // I only care about h2 and h3.
+      // If I wanted more levels, I'd need to count the
+      // number of #s.
+      const level = raw.slice(0, 3) === '###' ? 3 : 2;
+
+      return { text, level };
+    })
+    .filter(({ text }) => text.toLowerCase() != 'summary');
 }
 
 export const getPost = async ({ slug }: { slug: string }) => {
@@ -51,14 +55,16 @@ export const getPost = async ({ slug }: { slug: string }) => {
 
   const { compiledSource } = source;
 
-  const tableOfContents = getHeadings(content);
+  const headings = getHeadings(content);
+
+  console.log(headings);
 
   return {
     data,
     source: {
       compiledSource,
     },
-    headings: tableOfContents,
+    headings,
   };
 };
 

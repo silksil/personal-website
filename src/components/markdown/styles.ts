@@ -5,14 +5,6 @@ const StyledMarkdown = styled(Box)(({ theme }) => {
   const isLight = theme.palette.mode === 'light';
 
   return {
-    '& ul, & ol': {
-      ...theme.typography.body1,
-      color: theme.palette.text.secondary,
-      paddingLeft: 0,
-      listStylePosition: 'inside',
-      marginBottom: 24,
-    },
-
     // Blockquote
     '& blockquote': {
       lineHeight: 1.5,
@@ -40,7 +32,7 @@ const StyledMarkdown = styled(Box)(({ theme }) => {
         fontSize: '3em',
         content: '"\\201C"',
         position: 'absolute',
-        color: theme.palette.text.disabled,
+        color: theme.palette.primary.main,
       },
     },
 
