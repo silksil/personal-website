@@ -1,2 +1,1 @@
-export * from "./variants";
-export { default as ButtonAnimate } from "./ButtonAnimate";
+export * from './variants';
