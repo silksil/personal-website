@@ -3,7 +3,6 @@ import { forwardRef } from 'react';
 // @mui
 import { Box, IconButton as BaseIconButton, IconButtonProps } from '@mui/material';
 
-// ----------------------------------------------------------------------
 
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   ({ children, size = 'medium', ...other }, ref) => (

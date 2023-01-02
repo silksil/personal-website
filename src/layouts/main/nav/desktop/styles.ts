@@ -72,7 +72,6 @@ export const StyledPopover = styled(Popover)(({ theme }) => ({
     margin: 'auto',
     top: `80px !important`,
     padding: theme.spacing(5, 1, 1, 3),
-
     maxWidth: theme.breakpoints.values.lg,
     borderRadius: Number(theme.shape.borderRadius) * 2,
     border: `solid 1px ${alpha(theme.palette.grey[500], 0.16)}`,
