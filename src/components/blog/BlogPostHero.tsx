@@ -1,8 +1,9 @@
 import { alpha, styled } from '@mui/material/styles';
-import { Box, Avatar, SpeedDial, Typography, SpeedDialAction } from '@mui/material';
+import { Box, SpeedDial, Typography } from '@mui/material';
 import useResponsive from 'src/hooks/useResponsive';
 import Iconify from '../iconify/Iconify';
-import Image from '../image/Image';
+// import Image from '../image/Image';
+import { IData } from 'src/@types/blog';
 
 const StyledOverlay = styled('div')(({ theme }) => ({
   top: 0,
@@ -54,11 +55,11 @@ const StyledFooter = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 type Props = {
-  post: IBlogPost;
+  post: IData;
 };
 
 export default function BlogPostHero({ post }: Props) {
-  const { cover, title, author, createdAt } = post;
+  const { title } = post;
 
   const isDesktop = useResponsive('up', 'sm');
 
@@ -77,15 +78,15 @@ export default function BlogPostHero({ post }: Props) {
 
       <StyledFooter>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Avatar alt={author.name} src={author.avatarUrl} sx={{ width: 48, height: 48 }} />
+          {/* <Avatar alt={author.name} src={author.avatarUrl} sx={{ width: 48, height: 48 }} /> */}
 
           <Box sx={{ ml: 2 }}>
-            <Typography variant="subtitle1" sx={{ color: 'common.white' }}>
+            {/* <Typography variant="subtitle1" sx={{ color: 'common.white' }}>
               {author.name}
-            </Typography>
+            </Typography> */}
 
             <Typography variant="body2" sx={{ color: 'grey.500' }}>
-              {fDate(createdAt)}
+              {/* {fDate(createdAt)} */}
             </Typography>
           </Box>
         </Box>
@@ -96,7 +97,7 @@ export default function BlogPostHero({ post }: Props) {
           icon={<Iconify icon="eva:share-fill" />}
           sx={{ '& .MuiSpeedDial-fab': { width: 48, height: 48 } }}
         >
-          {_socials.map((action) => (
+          {/* {_socials.map((action) => (
             <SpeedDialAction
               key={action.name}
               icon={<Iconify icon={action.icon} sx={{ color: action.color }} />}
@@ -104,13 +105,13 @@ export default function BlogPostHero({ post }: Props) {
               tooltipPlacement="top"
               FabProps={{ color: 'default' }}
             />
-          ))}
+          ))} */}
         </SpeedDial>
       </StyledFooter>
 
       <StyledOverlay />
 
-      <Image alt="cover" src={cover} ratio="16/9" />
+      {/* <Image alt="cover" src={cover} ratio="16/9" /> */}
     </Box>
   );
 }
