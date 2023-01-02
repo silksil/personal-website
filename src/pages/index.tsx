@@ -5,6 +5,8 @@ import MainLayout from 'src/layouts/main/MainLayout';
 import { getAllPosts } from 'src/utils/blog';
 import { IPost } from 'src/@types/blog';
 import BlogPostCard from 'src/components/blog/BlogPostCard';
+import NextLink from 'next/link';
+import { PATHS } from 'src/routes/paths';
 
 export default function Projects({ articles }: { articles: IPost[] }) {
   const slicedArticles = articles.slice(0, 3);
@@ -20,10 +22,12 @@ export default function Projects({ articles }: { articles: IPost[] }) {
             Latest posts
           </Typography>
           <Grid container spacing={3}>
-            {slicedArticles.map((article) => (
-              <Grid item key={article.data.slug} xs={12} md={6} lg={4}>
-                <BlogPostCard post={article.data} />
-              </Grid>
+            {slicedArticles.map((article, index) => (
+              <NextLink href={`${PATHS.blog}/${article.data.slug}`} key={index}>
+                <Grid item key={article.data.slug} xs={12} md={6} lg={4}>
+                  <BlogPostCard post={article.data} />
+                </Grid>
+              </NextLink>
             ))}
           </Grid>
         </Container>
